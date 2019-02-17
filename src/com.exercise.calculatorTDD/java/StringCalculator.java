@@ -1,7 +1,7 @@
 public class StringCalculator {
 
 
-    public static String add(String Number) {
-        return  Number.isEmpty() ? "0" : Number;
+    public  String add(String textAsNumber) {
+        return  textAsNumber.isEmpty() ? "0" : textAsNumber;
     }
 }
