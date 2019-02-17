@@ -2,6 +2,6 @@ public class StringCalculator {
 
 
     public static String add(String Number) {
-        return "0" ;
+        return  Number.isEmpty() ? "0" : Number;
     }
 }
