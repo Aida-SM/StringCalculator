@@ -30,5 +30,11 @@ public class StringCalculatorTest {
 
     }
 
+    @Test
+    public void ShouldReturnSumOfTwoNumberAsStringSeparatedByCamma () {
 
+        String result = calculator.add("1,2");
+
+        Assert.assertEquals("3", result);
+    }
 }
