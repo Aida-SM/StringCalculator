@@ -31,7 +31,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumOfTwoNumberAsStringSeparatedByCamma () {
+    public void shouldReturnSumOfTwoNumberAsStringSeparatedByComma () {
 
         String result = calculator.add("1,2");
 
@@ -39,7 +39,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumOfmultipleNumbersSeparatedByCamma() {
+    public void shouldReturnSumOfmultipleNumbersSeparatedByComma() {
 
         String result = calculator.add("1,2,3,4");
         Assert.assertEquals("10", result);
