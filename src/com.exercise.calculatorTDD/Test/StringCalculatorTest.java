@@ -22,7 +22,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void ShouldReturnStringWhenThereIsOneNumberAsString() {
+    public void shouldReturnStringWhenThereIsOneNumberAsString() {
 
         String result = calculator.add("1.1");
 
@@ -31,7 +31,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void ShouldReturnSumOfTwoNumberAsStringSeparatedByCamma () {
+    public void shouldReturnSumOfTwoNumberAsStringSeparatedByCamma () {
 
         String result = calculator.add("1,2");
 
