@@ -22,11 +22,13 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void ShouldReturnStringWhenThereIsOneString() {
+    public void ShouldReturnStringWhenThereIsOneNumberAsString() {
 
-        String result = calculator.add("1.1,2.2");
+        String result = calculator.add("1.1");
 
-        Assert.assertEquals("1.1,2.2" , result);
+        Assert.assertEquals("1.1" , result);
 
     }
+
+
 }
