@@ -39,10 +39,18 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumOfmultipleNumbersSeparatedByComma() {
+    public void shouldReturnSumOfMultipleNumbersSeparatedByComma() {
 
         String result = calculator.add("1,2,3,4");
         Assert.assertEquals("10", result);
+
+    }
+
+    @Test
+    public void shouldReturnSumOfMultipleNumbersSeparatedByNewline() {
+
+        String result = calculator.add("1\n2");
+        Assert.assertEquals("3", result);
 
     }
 }
