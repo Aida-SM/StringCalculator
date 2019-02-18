@@ -3,8 +3,7 @@ import java.text.DecimalFormat;
 public class StringCalculator {
 
     private float sum = 0;
-
-    DecimalFormat format = new DecimalFormat("0.#");
+    DecimalFormat format = new DecimalFormat("0.##");
 
     public  String add(String textAsNumber) {
         if (textAsNumber.isEmpty())
@@ -16,15 +15,23 @@ public class StringCalculator {
         else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
-        else if (textAsNumber.matches("//(.*)\\n(.*)")) {
 
+
+        else if (textAsNumber.matches("//(.*)\n(.*)")) {
             int firstPosition = textAsNumber.indexOf("//") + 2;
             int secondPosition= textAsNumber.indexOf("\n");
             String separationString = textAsNumber.substring(firstPosition,secondPosition);
             String separatedText = textAsNumber.substring(secondPosition+1);
             String[] separatedNumbers = separatedText.split(separationString);
-            for (String numbers: separatedNumbers) {
-                sum += Float.parseFloat(numbers) ;
+            for (String number : separatedNumbers) {
+                try {
+                    sum += Float.parseFloat(number);
+                }catch (Exception e){
+                    if (separationString.equals(number)) {
+                        continue;
+                    }else
+                      return  separationString +" expected but "+number +" found at position " + separatedText.indexOf(number) ;
+                }
             }
             return format.format(sum);
         }

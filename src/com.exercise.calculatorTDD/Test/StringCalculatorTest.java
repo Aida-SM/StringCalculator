@@ -49,8 +49,8 @@ public class StringCalculatorTest {
     @Test
     public void shouldReturnSumOfMultipleNumbersSeparatedByNewline() {
 
-        String result = calculator.add("1.1\n2");
-        Assert.assertEquals("3.1", result);
+        String result = calculator.add("1.01\n2");
+        Assert.assertEquals("3.01", result);
 
     }
 
@@ -70,8 +70,15 @@ public class StringCalculatorTest {
 
     @Test
     public void shouldReturnSumOfTwoNumbersWithStringStartedWithCustomSeparator() {
-        String result = calculator.add("//sep\n2.1sep5sep3.1");
-        Assert.assertEquals("10.2" , result);
+        String result = calculator.add("//s\n2.1s5s3.01");
+        Assert.assertEquals("10.11" , result);
+
+    }
+
+    @Test
+    public void shouldReturnTheErrorMessageWhenStringHasTwoSeparator() {
+        String result = calculator.add("//|\n1|20,3");
+        Assert.assertEquals("| expected but , found at position 4" , result);
 
     }
 }
