@@ -1,8 +1,10 @@
-
+import java.text.DecimalFormat;
 
 public class StringCalculator {
 
-    private int sum = 0;
+    private float sum = 0;
+
+    DecimalFormat format = new DecimalFormat("0.#");
 
     public  String add(String textAsNumber) {
         if (textAsNumber.isEmpty())
@@ -14,31 +16,35 @@ public class StringCalculator {
         else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
-        else if (textAsNumber.startsWith("//")){
-            for (int i = 0 ; i<textAsNumber.length();i++){
-                int num =textAsNumber.charAt(i);
-                if(num >=48 && num <=57){
-                    char num2= textAsNumber.charAt(i);
-                    sum+=Integer.parseInt(String.valueOf(num2));
-                }
+        else if (textAsNumber.matches("//(.*)\\n(.*)")) {
+
+            int firstPosition = textAsNumber.indexOf("//") + 2;
+            int secondPosition= textAsNumber.indexOf("\n");
+            String separationString = textAsNumber.substring(firstPosition,secondPosition);
+            String separatedText = textAsNumber.substring(secondPosition+1);
+            String[] separatedNumbers = separatedText.split(separationString);
+            for (String numbers: separatedNumbers) {
+                sum += Float.parseFloat(numbers) ;
             }
-            return String.valueOf(sum);
+            return format.format(sum);
         }
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
             for (String split: splitNumbers) {
-                sum += Integer.parseInt(split) ;
+                sum += Float.parseFloat(split) ;
             }
-            return String.valueOf(sum);
+            return format.format(sum);
         }
         else if(textAsNumber.contains("\n")){
-             String[] splitNumbers = textAsNumber.split("\n");
+            String[] splitNumbers = textAsNumber.split("\n");
             for (String split: splitNumbers) {
-                sum += Integer.parseInt(split) ;
+                sum += Float.parseFloat(split) ;
             }
-            return String.valueOf(sum);
+            return format.format(sum);
         }
+
         else
             return textAsNumber ;
+
     }
 }

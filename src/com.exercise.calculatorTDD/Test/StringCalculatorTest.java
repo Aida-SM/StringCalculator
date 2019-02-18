@@ -41,16 +41,16 @@ public class StringCalculatorTest {
     @Test
     public void shouldReturnSumOfMultipleNumbersSeparatedByComma() {
 
-        String result = calculator.add("1,2,3,4");
-        Assert.assertEquals("10", result);
+        String result = calculator.add("1.1,2.1,3,4");
+        Assert.assertEquals("10.2", result);
 
     }
 
     @Test
     public void shouldReturnSumOfMultipleNumbersSeparatedByNewline() {
 
-        String result = calculator.add("1\n2");
-        Assert.assertEquals("3", result);
+        String result = calculator.add("1.1\n2");
+        Assert.assertEquals("3.1", result);
 
     }
 
@@ -70,8 +70,8 @@ public class StringCalculatorTest {
 
     @Test
     public void shouldReturnSumOfTwoNumbersWithStringStartedWithCustomSeparator() {
-        String result = calculator.add("//sep\n2sep3");
-        Assert.assertEquals("5" , result);
+        String result = calculator.add("//sep\n2.1sep5sep3.1");
+        Assert.assertEquals("10.2" , result);
 
     }
 }
