@@ -70,8 +70,8 @@ public class StringCalculatorTest {
 
     @Test
     public void shouldReturnSumOfTwoNumbersWithStringStartedWithCustomSeparator() {
-        String result = calculator.add("//;\n1;2");
-        Assert.assertEquals("3" , result);
+        String result = calculator.add("//sep\n2sep3");
+        Assert.assertEquals("5" , result);
 
     }
 }

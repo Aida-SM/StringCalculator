@@ -14,15 +14,15 @@ public class StringCalculator {
         else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
-        else if (textAsNumber.matches("//(.*)\n(.*)")){
-            char customSeparator = textAsNumber.charAt(2);
-            textAsNumber = textAsNumber.substring(4);
-            String[] splitNumbers = textAsNumber.split(String.valueOf(customSeparator));
-            for (String split: splitNumbers) {
-                sum += Integer.parseInt(split) ;
+        else if (textAsNumber.startsWith("//")){
+            for (int i = 0 ; i<textAsNumber.length();i++){
+                int num =textAsNumber.charAt(i);
+                if(num >=48 && num <=57){
+                    char num2= textAsNumber.charAt(i);
+                    sum+=Integer.parseInt(String.valueOf(num2));
+                }
             }
             return String.valueOf(sum);
-
         }
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
