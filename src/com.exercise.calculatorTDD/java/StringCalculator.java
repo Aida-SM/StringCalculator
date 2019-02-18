@@ -11,7 +11,7 @@ public class StringCalculator {
             int position = textAsNumber.indexOf(',');
             return "Number expected but '\n' found at position " + String.valueOf(position)+".";
         }
-        else if (textAsNumber.endsWith(",") ){
+        else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
         else if (textAsNumber.contains(",")) {
