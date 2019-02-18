@@ -53,4 +53,11 @@ public class StringCalculatorTest {
         Assert.assertEquals("3", result);
 
     }
+
+    @Test
+    public void shouldReturnTheErrorMessageWhenNewlineComBesideComma() {
+        String result = calculator.add("1\n,2");
+        Assert.assertEquals("Wrong input" , result);
+    }
+
 }

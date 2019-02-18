@@ -8,6 +8,10 @@ public class StringCalculator {
     public  String add(String textAsNumber) {
         if (textAsNumber.isEmpty())
             return "0";
+        else if(textAsNumber.contains("\n,")|| textAsNumber.contains(",\n")){
+
+            return "Wrong input";
+        }
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
             for (String split: splitNumbers) {
@@ -24,6 +28,7 @@ public class StringCalculator {
             return String.valueOf(sum);
 
         }
+
         else
             return textAsNumber ;
 
