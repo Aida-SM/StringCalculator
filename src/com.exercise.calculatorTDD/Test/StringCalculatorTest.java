@@ -67,4 +67,11 @@ public class StringCalculatorTest {
         Assert.assertEquals("Number expected but EOF found" , result);
 
     }
+
+    @Test
+    public void shouldReturnSumOfTwoNumbersWithStringStartedWithCustomSeparator() {
+        String result = calculator.add("//;\n1;2");
+        Assert.assertEquals("3" , result);
+
+    }
 }
