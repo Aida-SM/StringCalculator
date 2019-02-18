@@ -76,9 +76,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnTheErrorMessageWhenStringHasTwoSeparator() {
+    public void shouldReturnTheErrorMessageWhenStringHasTwoDifferentSeparator() {
         String result = calculator.add("//|\n1|20,3");
         Assert.assertEquals("| expected but , found at position 4" , result);
 
     }
+
 }
