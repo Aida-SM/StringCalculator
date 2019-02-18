@@ -55,9 +55,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnTheErrorMessageWhenNewlineComBesideComma() {
-        String result = calculator.add("1\n,2");
-        Assert.assertEquals("Wrong input" , result);
+    public void shouldReturnTheErrorMessageWhenNewlineComBesideCommaWithShowingThePosition() {
+        String result = calculator.add("175.2\n,35");
+        Assert.assertEquals("Number expected but '\n' found at position 6." , result);
+
     }
 
 }

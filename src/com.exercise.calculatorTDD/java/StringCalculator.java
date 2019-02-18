@@ -7,8 +7,9 @@ public class StringCalculator {
     public  String add(String textAsNumber) {
         if (textAsNumber.isEmpty())
             return "0";
-        else if(textAsNumber.contains("\n,")|| textAsNumber.contains(",\n")){
-            return "Wrong input";
+        else if(textAsNumber.contains("\n,")){
+            int position = textAsNumber.indexOf(',');
+            return "Number expected but '\n' found at position " + String.valueOf(position)+".";
         }
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
