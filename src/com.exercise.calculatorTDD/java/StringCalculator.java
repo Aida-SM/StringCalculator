@@ -15,6 +15,9 @@ public class StringCalculator {
         else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
+        else if (textAsNumber.contains("-")){
+            return "Negative not allowed : -1";
+        }
 
 
         else if (textAsNumber.matches("//(.*)\n(.*)")) {
@@ -35,6 +38,7 @@ public class StringCalculator {
             }
             return format.format(sum);
         }
+
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
             for (String split: splitNumbers) {
