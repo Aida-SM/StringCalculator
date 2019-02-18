@@ -16,7 +16,8 @@ public class StringCalculator {
             return "Number expected but EOF found";
         }
         else if (textAsNumber.contains("-")){
-            return "Negative not allowed : -1";
+            int position = textAsNumber.indexOf('-');
+            return "Negative not allowed : -"+textAsNumber.charAt(position+1);
         }
 
 
