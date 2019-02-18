@@ -11,6 +11,9 @@ public class StringCalculator {
             int position = textAsNumber.indexOf(',');
             return "Number expected but '\n' found at position " + String.valueOf(position)+".";
         }
+        else if (textAsNumber.endsWith(",") ){
+            return "Number expected but EOF found";
+        }
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
             for (String split: splitNumbers) {

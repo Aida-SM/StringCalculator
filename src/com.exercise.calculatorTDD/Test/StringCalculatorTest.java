@@ -61,4 +61,10 @@ public class StringCalculatorTest {
 
     }
 
+    @Test
+    public void shouldReturnTheErrorMessageWhenMissingNumberInLastPosition() {
+        String result = calculator.add("1,3,");
+        Assert.assertEquals("Number expected but EOF found" , result);
+
+    }
 }
