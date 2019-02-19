@@ -27,12 +27,12 @@ public class StringCalculator {
                 if (mytTextAsNumber.get(i) == '-'){
                     mytTextAsNumber2.add("-");
                     mytTextAsNumber2.add(String.valueOf(mytTextAsNumber.get(i+1)));
-                    if (i+2 < mytTextAsNumber.size())
-                        mytTextAsNumber2.add(String.valueOf(mytTextAsNumber.get(i+2)));
+                    mytTextAsNumber2.add(",");
+
                 }
             }
-            for (String s:mytTextAsNumber2) {
-                 s2 += s  ;
+            for (int i=0; i<mytTextAsNumber2.size()-1;i++) {
+                 s2 += mytTextAsNumber2.get(i)  ;
             }
             return "Negative not allowed : "+ s2 ;
         }
