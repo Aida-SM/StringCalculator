@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class StringCalculator {
 
@@ -16,10 +17,25 @@ public class StringCalculator {
             return "Number expected but EOF found";
         }
         else if (textAsNumber.contains("-")){
-            int position = textAsNumber.indexOf('-');
-            return "Negative not allowed : -"+textAsNumber.charAt(position+1);
+            String s2="" ;
+            ArrayList<Character> mytTextAsNumber = new ArrayList<Character>();
+            ArrayList<String> mytTextAsNumber2 = new ArrayList<String>();
+            for (char c : textAsNumber.toCharArray()) {
+               mytTextAsNumber.add(c);
+            }
+            for (int i = 0;i< mytTextAsNumber.size();i++) {
+                if (mytTextAsNumber.get(i) == '-'){
+                    mytTextAsNumber2.add("-");
+                    mytTextAsNumber2.add(String.valueOf(mytTextAsNumber.get(i+1)));
+                    if (i+2 < mytTextAsNumber.size())
+                        mytTextAsNumber2.add(String.valueOf(mytTextAsNumber.get(i+2)));
+                }
+            }
+            for (String s:mytTextAsNumber2) {
+                 s2 += s  ;
+            }
+            return "Negative not allowed : "+ s2 ;
         }
-
 
         else if (textAsNumber.matches("//(.*)\n(.*)")) {
             int firstPosition = textAsNumber.indexOf("//") + 2;
@@ -43,6 +59,7 @@ public class StringCalculator {
         else if (textAsNumber.contains(",")) {
             String[] splitNumbers = textAsNumber.split(",");
             for (String split: splitNumbers) {
+
                 sum += Float.parseFloat(split) ;
             }
             return format.format(sum);

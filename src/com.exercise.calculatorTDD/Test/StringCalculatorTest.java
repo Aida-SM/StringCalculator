@@ -83,9 +83,15 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void shouldReturnTheErrorMessageWhenThereIsANegativeNumber() {
+    public void shouldReturnTheErrorMessageWhenThereIsANegativeNumbers() {
         String result = calculator.add("-1,2");
         Assert.assertEquals("Negative not allowed : -1", result);
+    }
+
+    @Test
+    public void shouldReturnTheErrorMessageWhenThereAreNegativeNumbers() {
+        String result = calculator.add("2,-4,-5");
+        Assert.assertEquals("Negative not allowed : -4,-5", result);
     }
 
 
