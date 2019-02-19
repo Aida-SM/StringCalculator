@@ -94,5 +94,11 @@ public class StringCalculatorTest {
         Assert.assertEquals("Negative not allowed : -4,-5", result);
     }
 
+    @Test
+    public void shouldReturnTheErrorMessageWhenTwoErrorsAreOccurred() {
+        String result = calculator.add("-1,,2");
+        Assert.assertEquals("Negative not allowed : -1\\nNumber expected but ',' found at position 3.", result);
 
+
+    }
 }

@@ -16,7 +16,8 @@ public class StringCalculator {
         else if (textAsNumber.endsWith(",")  || textAsNumber.endsWith("\n") ){
             return "Number expected but EOF found";
         }
-        else if (textAsNumber.contains("-")){
+        else if (textAsNumber.contains("-") ){
+
             String s2="" ;
             ArrayList<Character> mytTextAsNumber = new ArrayList<Character>();
             ArrayList<String> mytTextAsNumber2 = new ArrayList<String>();
@@ -32,9 +33,13 @@ public class StringCalculator {
                 }
             }
             for (int i=0; i<mytTextAsNumber2.size()-1;i++) {
-                 s2 += mytTextAsNumber2.get(i)  ;
+                s2 += mytTextAsNumber2.get(i)  ;
             }
-            return "Negative not allowed : "+ s2 ;
+            if ( textAsNumber.contains(",,")) {
+                int position = textAsNumber.indexOf(',');
+                return "Negative not allowed : " + s2 + "\\nNumber expected but ',' found at position " + String.valueOf(position+1)+".";
+            }else
+                return "Negative not allowed : " + s2;
         }
 
         else if (textAsNumber.matches("//(.*)\n(.*)")) {
