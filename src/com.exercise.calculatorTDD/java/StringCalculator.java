@@ -18,28 +18,28 @@ public class StringCalculator {
         }
         else if (textAsNumber.contains("-") ){
 
-            String s2="" ;
-            ArrayList<Character> mytTextAsNumber = new ArrayList<Character>();
-            ArrayList<String> mytTextAsNumber2 = new ArrayList<String>();
+            String errorText="" ;
+            ArrayList<Character> textAsNumberCharList = new ArrayList<Character>();
+            ArrayList<String> errorList = new ArrayList<String>();
             for (char c : textAsNumber.toCharArray()) {
-               mytTextAsNumber.add(c);
+               textAsNumberCharList.add(c);
             }
-            for (int i = 0;i< mytTextAsNumber.size();i++) {
-                if (mytTextAsNumber.get(i) == '-'){
-                    mytTextAsNumber2.add("-");
-                    mytTextAsNumber2.add(String.valueOf(mytTextAsNumber.get(i+1)));
-                    mytTextAsNumber2.add(",");
+            for (int i = 0;i< textAsNumberCharList.size();i++) {
+                if (textAsNumberCharList.get(i) == '-'){
+                    errorList.add("-");
+                    errorList.add(String.valueOf(textAsNumberCharList.get(i+1)));
+                    errorList.add(",");
 
                 }
             }
-            for (int i=0; i<mytTextAsNumber2.size()-1;i++) {
-                s2 += mytTextAsNumber2.get(i)  ;
+            for (int i=0; i<errorList.size()-1;i++) {
+                errorText += errorList.get(i)  ;
             }
             if ( textAsNumber.contains(",,")) {
                 int position = textAsNumber.indexOf(',');
-                return "Negative not allowed : " + s2 + "\\nNumber expected but ',' found at position " + String.valueOf(position+1)+".";
+                return "Negative not allowed : " + errorText + "\\nNumber expected but ',' found at position " + String.valueOf(position+1)+".";
             }else
-                return "Negative not allowed : " + s2;
+                return "Negative not allowed : " + errorText;
         }
 
         else if (textAsNumber.matches("//(.*)\n(.*)")) {
